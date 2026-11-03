@@ -3,7 +3,7 @@
   stdenvNoCC,
   fetchzip,
 }:
-stdenvNoCC.mkDerivation rec {
+stdenvNoCC.mkDerivation {
   pname = "asebi";
   version = "1.011";
 
@@ -16,18 +16,17 @@ stdenvNoCC.mkDerivation rec {
   installPhase = ''
     runHook preInstall
 
-    mkdir -p $out/share/fonts/truetype
-    find . -type f \( -name "*.ttf" -o -name "*.otf" \) \
-      -exec cp {} $out/share/fonts/truetype/ \;
+    find . -type f -name "*.ttf" -exec install -Dm444 -t $out/share/fonts/truetype {} +
+    find . -type f -name "*.otf" -exec install -Dm444 -t $out/share/fonts/opentype {} +
 
     runHook postInstall
   '';
 
-  meta = with lib; {
-    description = "Asebi Mincho";
+  meta = {
+    description = "Asebi Mincho - Another Japanese font";
     downloadPage = "https://metasta.github.io/asebi/";
     homepage = "https://metasta.github.io/asebi/";
-    license = licenses.ipa;
-    platforms = platforms.all;
+    license = lib.licenses.ipa;
+    platforms = lib.platforms.all;
   };
 }
