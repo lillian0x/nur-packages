@@ -6,7 +6,7 @@ workflows:
     '.github/workflows/build.yml':
         - 'actions/checkout@v5.1.0'
         - 'cachix/cachix-action@v16'
-        - 'cachix/install-nix-action@v31.11.3'
+        - 'cachix/install-nix-action@v32.0.0'
 dependencies:
     'actions/checkout@v5.1.0':
         ref: 'v5.1.0'
@@ -18,8 +18,8 @@ dependencies:
         commit: 'sha1-3ba601ff5bbb07c7220846facfa2cd81eeee15a1'
         owner_id: 36824654
         repo_id: 211717886
-    'cachix/install-nix-action@v31.11.3':
-        ref: 'v31.11.3'
-        commit: 'sha1-75c75c31ebece974e48ebc36b4ad125bd97bd97b'
+    'cachix/install-nix-action@v32.0.0':
+        ref: 'v32.0.0'
+        commit: 'sha1-bb0495a1086c46893eee56f32fd192dfe4a15bb9'
         owner_id: 36824654
         repo_id: 212301524
